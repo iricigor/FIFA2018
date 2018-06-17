@@ -5,6 +5,7 @@
 This module is a PowerShell wrapper for FIFA results API [estiens/world_cup_json](https://github.com/estiens/world_cup_json).
 It gives results / fixtures / statistics about Football World Cup **[FIFA 2018](https://www.fifa.com/worldcup/)** matches.
 
+Module was tested with PowerShell Core 6.0.2 on Ubuntu 16.04 and with Windows PowerShell 5.1 on Windows 10.
 
 ## Install Instructions
 
@@ -39,6 +40,9 @@ Get-FIFATomorrow Short
 
 # Get teams' group standings, multiple teams supported
 Get-FIFATeamStanding SRB,CRO Full
+
+# Get group rankings accepts pipeline and it is better to format it as table
+'D','E' | Get-FIFAGroupStanding | Format-Table
 ```
 
 ### -AsString parameter explanation
