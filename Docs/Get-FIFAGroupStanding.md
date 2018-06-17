@@ -38,10 +38,10 @@ GoalDifferential Group Points Rank Country
 
 Returns current standings for group D. Table formatting is provided with standard PowerShell command Format-Table.
 
-### Example 1
+### Example 2
 
 ```powershell
-Get-FIFAGroupStanding a,b,c,d | ? Rank -eq 1 | Select Group, Country, Points
+PS C:\> Get-FIFAGroupStanding a,b,c,d | ? Rank -eq 1 | Select Group, Country, Points
 ```
 
 ```text
@@ -72,13 +72,11 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.Char[]
-
 
 ## OUTPUTS
 
