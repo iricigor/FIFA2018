@@ -11,7 +11,7 @@ Module was tested with PowerShell Core 6.0.2 on Ubuntu 16.04 and with Windows Po
 
 You can install module in two ways:
 
-1. From PowerShell Gallery (preffered way, not implemented yet)
+1. From PowerShell Gallery (preferred way)
 
 ```PowerShell
 Install-Module FIFA2018 -Scope CurrentUser
