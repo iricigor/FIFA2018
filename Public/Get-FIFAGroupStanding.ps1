@@ -4,9 +4,9 @@ function Get-FIFAGroupStanding {
     param (
         
         [parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
-        [Alias('GroupName')][char[]]$GroupLetter,
+        [Alias('GroupName')][char[]]$GroupLetter
         
-        [AsStringOptions]$AsString
+        #[AsStringOptions]$AsString
     )
     
     BEGIN {
@@ -38,7 +38,8 @@ function Get-FIFAGroupStanding {
 
             # return value
             if ($AsString) {
-                Convert-FIFATeamToString $Team $AsString
+                #Convert-FIFATeamToString $Team $AsString
+                throw 'Group standing as string not implemented yet'
             } else {
                 $SortedGroup
             }        
