@@ -1,6 +1,8 @@
 # FIFA2018
 
 [![Build status](https://ci.appveyor.com/api/projects/status/9v6xq9coradp2j5b/branch/master?svg=true)](https://ci.appveyor.com/project/iricigor/fifa2018/branch/master)
+[![latest version](https://img.shields.io/powershellgallery/v/FIFA2018.svg?label=latest+version)](https://www.powershellgallery.com/packages/FIFA2018)
+[![downloads](https://img.shields.io/powershellgallery/dt/FIFA2018.svg?label=downloads)](https://www.powershellgallery.com/packages/FIFA2018)
 
 This module is a PowerShell wrapper for FIFA results API [estiens/world_cup_json](https://github.com/estiens/world_cup_json).
 It gives results / fixtures / statistics about Football World Cup **[FIFA 2018](https://www.fifa.com/worldcup/)** matches.
