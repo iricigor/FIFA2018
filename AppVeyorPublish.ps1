@@ -15,7 +15,7 @@ $ModuleName = 'FIFA2018'
 $Manifest = Test-ModuleManifest -Path (Join-Path . "$ModuleName.psd1")
 $LocalVersion = $Manifest.Version.ToString()
 
-$RemoteModule = Find-Module $ModuleName -Repository PSGallery
+$RemoteModule = Find-Module $ModuleName -Repository PSGallery -ea SilentlyContinue
 if ($RemoteModule) {$RemoteVersion = $RemoteModule.Version.ToString()}
 
 if ($LocalVersion -eq $RemoteVersion) {
