@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-FIFAGroupStanding</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFAGroupStanding</command:noun>
+      <maml:description>
+        <maml:para>Gets current standings for given group letter(s).</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Gets current standings for given group letter(s).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFAGroupStanding</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="GroupName">
+          <maml:name>GroupLetter</maml:name>
+          <maml:Description>
+            <maml:para>A letter A to H specifying group name. More comma separated leters can be provided.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Char[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Char[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="GroupName">
+        <maml:name>GroupLetter</maml:name>
+        <maml:Description>
+          <maml:para>A letter A to H specifying group name. More comma separated leters can be provided.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Char[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Char[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Char[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFAGroupStanding E | Format-Table
+
+GoalDifferential Group Points Rank Country
+---------------- ----- ------ ---- -------
+               1 E          3    1 Serbia
+               0 E          0    2 Switzerland
+               0 E          0    3 Brazil
+              -1 E          0    4 Costa Rica</dev:code>
+        <dev:remarks>
+          <maml:para>Returns current standings for group D. Table formatting is provided with standard PowerShell command Format-Table.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFAGroupStanding a,b,c,d | ? Rank -eq 1 | Select Group, Country, Points
+
+Group Country Points
+----- ------- ------
+A     Russia       3
+B     Iran         3
+C     France       3
+D     Croatia      3</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-FIFALiveMatch</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFALiveMatch</command:noun>
+      <maml:description>
+        <maml:para>Gets details about currently live match(es).</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Gets details about currently live match. If there is more than one match, it will return both of them. Match details can be obtained in JSON format or as string in one of the predefined formats, based on parameter `-AsString`.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFALiveMatch</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>AsString</maml:name>
+          <maml:Description>
+            <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+            <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Full</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Events</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+          <dev:type>
+            <maml:name>AsStringOptions</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>AsString</maml:name>
+        <maml:Description>
+          <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+          <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+        <dev:type>
+          <maml:name>AsStringOptions</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFALiveMatch Full
+
+Brazil - Switzerland 1:0 (34')</dev:code>
+        <dev:remarks>
+          <maml:para>Returns details about currently running match. For parameter explanation see parameter `-AsString` below.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-FIFATeamStanding</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFATeamStanding</command:noun>
+      <maml:description>
+        <maml:para>Gets current group standing for a given team.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Gets current group standing for a given team. Team can be specified using three-lettered abbreviation or using its full name. Team details can be obtained in JSON format or as string in one of the predefined formats, based on parameter `-AsString`.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFATeamStanding</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+          <maml:name>TeamName</maml:name>
+          <maml:Description>
+            <maml:para>String specifying country for which we need information. It can be provided as three lettered abbreviation or as full country name. More countries can be specified with comma separated list.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>AsString</maml:name>
+          <maml:Description>
+            <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+            <maml:para>- `-AsString Short` gives shorter string representing team. It includes country code and part of information. - `-AsString Full` gives longer string representing team. It includes full country name and detailed standings information.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Full</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Events</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+          <dev:type>
+            <maml:name>AsStringOptions</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>AsString</maml:name>
+        <maml:Description>
+          <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+          <maml:para>- `-AsString Short` gives shorter string representing team. It includes country code and part of information. - `-AsString Full` gives longer string representing team. It includes full country name and detailed standings information.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+        <dev:type>
+          <maml:name>AsStringOptions</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
+        <maml:name>TeamName</maml:name>
+        <maml:Description>
+          <maml:para>String specifying country for which we need information. It can be provided as three lettered abbreviation or as full country name. More countries can be specified with comma separated list.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFATeamStanding -TeamName SRB -AsString Full
+
+Serbia (group E) 1 0 0 1:0 (+1) 3pts</dev:code>
+        <dev:remarks>
+          <maml:para>Gives details about played matches, goals and points for Serbian team.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-FIFAToday</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFAToday</command:noun>
+      <maml:description>
+        <maml:para>Lists all today's matches.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Function will list all today's FIFA 2018 matches in one of the predefined formats.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFAToday</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>AsString</maml:name>
+          <maml:Description>
+            <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+            <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Full</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Events</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+          <dev:type>
+            <maml:name>AsStringOptions</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>AsString</maml:name>
+        <maml:Description>
+          <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+          <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+        <dev:type>
+          <maml:name>AsStringOptions</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFAToday Short
+
+CRC-SRB 0:1
+GER-MEX 0:1
+BRA-SUI 1:0 (45'+2')</dev:code>
+        <dev:remarks>
+          <maml:para>Returns brief details about all today's matches.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-FIFATomorrow</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFATomorrow</command:noun>
+      <maml:description>
+        <maml:para>Lists all matches scheduled for tomorrow.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Function lists all football matches scheduled for the next day.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFATomorrow</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>AsString</maml:name>
+          <maml:Description>
+            <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+            <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Full</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Events</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+          <dev:type>
+            <maml:name>AsStringOptions</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>AsString</maml:name>
+        <maml:Description>
+          <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+          <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+        <dev:type>
+          <maml:name>AsStringOptions</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFATomorrow Full
+
+Sweden - Korea Republic  (02:00 PM)
+Belgium - Panama  (05:00 PM)
+Tunisia - England  (08:00 PM)</dev:code>
+        <dev:remarks>
+          <maml:para>Lists all matches scheduled for tomorrow including their start times.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+</helpItems>

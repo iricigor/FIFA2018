@@ -2,9 +2,9 @@ function Convert-FIFAMatchToString {
     param (
 
         [parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
-        [PSObject[]]$Match, 
+        [PSObject[]]$Match,
 
-        [AsStringOptions]$Type 
+        [AsStringOptions]$Type
     )
 
     foreach ($M1 in $Match) {
@@ -40,6 +40,6 @@ function Convert-FIFAMatchToString {
 
         } # end switch $Type
 
-    } # end foreach    
+    } # end foreach
 
 }

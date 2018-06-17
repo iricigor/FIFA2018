@@ -8,7 +8,7 @@ function Get-FIFATomorrow {
     )
 
     Write-Verbose "AsString = $AsString"
-    $Response = Get-FIFAEndpoint 'matches/tomorrow/' 
+    $Response = Get-FIFAEndpoint 'matches/tomorrow/'
 
     if ($AsString) {
         Write-Verbose "Converting and sending output"

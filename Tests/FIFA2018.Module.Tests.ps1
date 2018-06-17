@@ -18,7 +18,7 @@ Import-Module (Join-Path $root "$ModuleName.psd1") -Force
 #
 
 if ($Env:APPVEYOR) {
-    Write-Host "Checking environment details`n"
+    "Checking environment details`n" | Out-Host
     $PSVersionTable | Out-Host
     Get-Module | Out-Host
     Get-Module -ListAvailable PowerShellGet,PackageManagement | Out-Host
@@ -65,19 +65,30 @@ Describe 'Proper Declarations' {
 # Check if documentation is proper
 #
 
-# Describe 'Proper Documentation' {
+Describe 'Proper Documentation' {
 
-# 	It 'Updates documentation and does git diff' {
-# 		# install PlatyPS
-#         # Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-#         if (!(Get-Module platyPS -List -ea 0)) {Install-Module platyPS -Force -Scope CurrentUser}
-# 		Import-Module platyPS
-# 		# update documentation
-# 		Push-Location -Path $root
-#         Update-MarkdownHelp -Path .\Docs
-#         New-ExternalHelp -Path .\Docs -OutputPath .\en-US -Force
-#         $diff = git diff .\Docs .\en-US
-#         Pop-Location
-# 		$diff | Should -Be $null
-# 	}
-# }
+	It 'Updates documentation and does git diff' {
+		# install PlatyPS
+        # Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+        if (!(Get-Module platyPS -List -ea 0)) {Install-Module platyPS -Force -Scope CurrentUser}
+		Import-Module platyPS
+		# update documentation
+		Push-Location -Path $root
+        Update-MarkdownHelp -Path .\Docs
+        New-ExternalHelp -Path .\Docs -OutputPath .\en-US -Force
+        $diff = git diff .\Docs .\en-US
+        Pop-Location
+		$diff | Should -Be $null
+	}
+}
+
+Describe 'ScriptAnalyzer Tests' {
+    it 'Checks script and finds no errors' {
+        # Install PSScriptAnalyzer
+        if (!(Get-Module PSScriptAnalyzer -List -ea 0)) {Install-Module PSScriptAnalyzer -Force -Scope CurrentUser}
+        Import-Module PSScriptAnalyzer
+        # Check code
+        $SA = Invoke-ScriptAnalyzer -Path $root -Recurse
+        $SA | ? Severity -eq 'Error' | Should -Be $null
+    }
+}

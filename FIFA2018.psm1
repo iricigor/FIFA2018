@@ -1,3 +1,6 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost','')]
+param()
+
 $ModName = 'FIFA2018'
 Get-Module $ModName | Remove-Module -Force
 
@@ -36,3 +39,4 @@ Export-ModuleMember -Alias *
 
 Write-Host "`nType 'Get-Command -Module $ModName' for list of commands, 'Get-Help <CommandName>' for help, or"
 Write-Host "'Get-Command -Module $ModName | Get-Help | Select Name, Synopsis' for explanation on all commands`n"
+Write-Host "Module is based on API provided by github.com/estiens/world_cup_json"

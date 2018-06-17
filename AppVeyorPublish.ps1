@@ -39,7 +39,7 @@ Invoke-WebRequest -Uri https://nuget.org/NuGet.exe -OutFile $NuGetExeFilePath
 # we proceed with publish
 Write-Output "Publishing version $LocalVersion to PSGallery, currently published version is $RemoteVersion"
 try {
-    Publish-Module -Path . -Repository PSGallery -NuGetApiKey $env:MyPSGalleryAPIKey -ea Stop 
+    Publish-Module -Path . -Repository PSGallery -NuGetApiKey $env:MyPSGalleryAPIKey -ea Stop
     Write-Output "Module successfully published!"
 } catch {
     Write-Output "Publishing failed: $_"
