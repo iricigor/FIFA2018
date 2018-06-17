@@ -11,7 +11,10 @@ function Get-FIFALiveMatch {
     if (!$Match) {
         Write-Warning "No match in progress."
     } else {
-        if ($AsString) {Convert-FIFAMatchToString $Match $AsString}
-        else {$Match}
+        if ($AsString) {
+            Convert-FIFAMatchToString $Match $AsString
+        } else {
+            $Match
+        }
     }
 }
