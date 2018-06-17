@@ -4,7 +4,7 @@ function Get-FIFALiveMatch {
     # if no match, it returns warning
     
     param (
-        [string]$AsString
+        [AsStringOptions]$AsString
     )
 
     $Match = Get-FIFAToday | ? Status -eq 'In Progress'

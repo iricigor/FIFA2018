@@ -4,12 +4,13 @@ function Get-FIFATomorrow {
     [CmdletBinding()]
 
     param (
-        [AsStringType]$AsString
+        [AsStringOptions]$AsString
     )
 
     Write-Verbose "AsString = $AsString"
     $Response = Get-FIFAEndpoint 'matches/tomorrow/' 
-    if ([string]$AsString) {
+
+    if ($AsString) {
         Write-Verbose "Converting and sending output"
         Convert-FIFAMatchToString $Response $AsString
     } else {
