@@ -29,7 +29,7 @@ function Convert-FIFAMatchToString {
                 }
             }
 
-            'Statistics' {
+            'Events' {
                 Convert-FIFAMatchToString $Match 'Full'
                 Get-FIFAMatchStatistics $Match
             }

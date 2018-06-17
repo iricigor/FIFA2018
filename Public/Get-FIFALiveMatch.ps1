@@ -8,6 +8,10 @@ function Get-FIFALiveMatch {
     )
 
     $Match = Get-FIFAToday | ? Status -eq 'In Progress'
-    if ($AsString) {Convert-FIFAMatchToString $Match $AsString}
-    else {$Match}
+    if (!$Match) {
+        Write-Warning "No match in progress."
+    } else {
+        if ($AsString) {Convert-FIFAMatchToString $Match $AsString}
+        else {$Match}    
+    }
 }

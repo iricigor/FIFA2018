@@ -35,3 +35,13 @@ Get-FIFAToday -AsString Full
 Get-FIFALiveMatch Events
 # -AsString is the only parameter, so name can be skipped
 ```
+
+### -AsString parameter explanation
+
+If -AsString is not specified, functions return JSON object as provided by calling API.
+
+**Short** gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time.
+
+**Full** gives full names for countries and result. For live and future matches, it applies the same logic as short.
+
+**Events** gives full names for countries and result, followed by chronological list of events from the match.
