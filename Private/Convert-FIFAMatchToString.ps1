@@ -4,7 +4,11 @@ function Convert-FIFAMatchToString {
         [parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [PSObject[]]$Match,
 
-        [AsStringOptions]$Type
+        [AsStringOptions]$Type,
+
+        # date/time formatting strings
+        [String]$ShortDateFormat = 't',
+        [String]$FullDateFormat = 't'
     )
 
     foreach ($M1 in $Match) {
@@ -13,18 +17,18 @@ function Convert-FIFAMatchToString {
 
             'Short' {
                 switch ($M1.status) {
-                    'completed' {$M1.home_team.code + '-' + $M1.away_team.code + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals}
+                    'completed' {$M1.home_team.code + '-' + $M1.away_team.code + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + ' (' + (Get-Date ($M1.datetime) -Format $ShortDateFormat) + ')'}
                     'in progress' {$M1.home_team.code + '-' + $M1.away_team.code + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + ' (' + $M1.time + ')'}
-                    'future' {$M1.home_team.code + '-' + $M1.away_team.code + ' (' + (Get-Date ($M1.datetime) -Format t) + ')'}
+                    'future' {$M1.home_team.code + '-' + $M1.away_team.code + ' (' + (Get-Date ($M1.datetime) -Format $ShortDateFormat) + ')'}
                     default {Write-Error ('Unknown match status ' + $M1.home_team.code + '-' + $M1.away_team.code + ', status: ' + $M1.status)}
                 }
             }
 
             'Full' {
                 switch ($M1.status) {
-                    'completed' {$M1.home_team.country + ' - ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals}
+                    'completed' {$M1.home_team.country + ' - ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + '  (' + (Get-Date ($M1.datetime) -Format $FullDateFormat) + ')'}
                     'in progress' {$M1.home_team.country + ' - ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + ' (' + $M1.time + ')'}
-                    'future' {$M1.home_team.country + ' - ' + $M1.away_team.country + '  (' + (Get-Date ($M1.datetime) -Format t) + ')'}
+                    'future' {$M1.home_team.country + ' - ' + $M1.away_team.country + '  (' + (Get-Date ($M1.datetime) -Format $FullDateFormat) + ')'}
                     default {Write-Error ('Unknown match status ' + $M1.home_team.country + '-' + $M1.away_team.country + ', status: ' + $M1.status)}
                 }
             }

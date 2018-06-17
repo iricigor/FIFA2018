@@ -45,9 +45,12 @@ Get-FIFATeamStanding SRB,CRO Full
 
 # Get group rankings accepts pipeline and it is better to format it as table
 'D','E' | Get-FIFAGroupStanding | Format-Table
+
+# List all matches for current world champions on this championship
+Get-FIFATeamMatches Germany Full
 ```
 
-For more information, see detailed examples for each command: [Today](Docs/Get-FIFAToday.md), [Tomorrow](Docs/Get-FIFATomorrow.md), [LiveMatch](Docs/Get-FIFALiveMatch.md), [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md).
+For more information, see detailed examples for each command: [Today](Docs/Get-FIFAToday.md), [Tomorrow](Docs/Get-FIFATomorrow.md), [LiveMatch](Docs/Get-FIFALiveMatch.md), [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md), [TeamMatches](Docs/Get-FIFATeamMatches.md)
 
 ### -AsString parameter explanation
 
