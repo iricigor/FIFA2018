@@ -37,6 +37,6 @@ Write-Host "Exported $($Public.Count) member(s)"
 Export-ModuleMember -Alias *
 
 
-Write-Host "Module is based on API provided by github.com/estiens/world_cup_json"
+Write-Host "`nModule is based on API provided by github.com/estiens/world_cup_json"
 Write-Host "`nType 'Get-Command -Module $ModName' for list of commands, 'Get-Help <CommandName>' for help, or"
 Write-Host "'Get-Command -Module $ModName | Get-Help | Select Name, Synopsis' for explanation on all commands`n"
