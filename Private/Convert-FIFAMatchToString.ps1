@@ -2,12 +2,12 @@ function Convert-FIFAMatchToString {
     param (
 
         [parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
-        [PSObject]$Match, 
+        [PSObject[]]$Match, 
 
         [AsStringOptions]$Type 
     )
-    foreach ($M1 in $Match) {
 
+    foreach ($M1 in $Match) {
 
         switch ($Type) {
 

@@ -24,8 +24,7 @@ Import-Module .\FIFA2018\FIFA2018.psd1 -Force
 
 ## Examples
 
-By default all commands return data in JSON format for further processing.
-It can be changed using -AsString parameter.
+By default all commands return data in JSON format for further processing. It can be changed to string(s) using `-AsString` parameter.
 
 ```PowerShell
 # Get list of todays matches
@@ -34,14 +33,20 @@ Get-FIFAToday -AsString Full
 # Get current match events
 Get-FIFALiveMatch Events
 # -AsString is the only parameter, so name can be skipped
+
+# Get short list of tomorrow's matches and their times
+Get-FIFATomorrow Short
+
+# Get teams' group standings, multiple teams supported
+Get-FIFATeamStanding SRB,CRO Full
 ```
 
 ### -AsString parameter explanation
 
-If -AsString is not specified, functions return JSON object as provided by calling API.
+If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.
 
-**Short** gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time.
+**`-AsString Short`** gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time.
 
-**Full** gives full names for countries and result. For live and future matches, it applies the same logic as short.
+**`-AsString Full`** gives full names for countries and result. For live and future matches, it applies the same logic as short.
 
-**Events** gives full names for countries and result, followed by chronological list of events from the match.
+**`-AsString Events`** gives full names for countries and result, followed by chronological list of events from the match.
