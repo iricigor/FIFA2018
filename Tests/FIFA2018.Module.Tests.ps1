@@ -45,9 +45,10 @@ Describe "Fake-Test" {
 Describe 'Proper Declarations' {
 
     It 'Checks for existence of functions' {
-        @(Get-Command -Module $ModuleName -CommandType Function).Count | Should -Be 2 -Because 'We should have two functions defined'
+        @(Get-Command -Module $ModuleName -CommandType Function).Count | Should -Be 3 -Because 'We should have three functions defined'
         Get-Command Get-FIFAToday -ea 0 | Should -Not -Be $Null
         Get-Command Get-FIFALiveMatch -ea 0 | Should -Not -Be $Null
+        Get-Command Get-FIFATomorrow -ea 0 | Should -Not -Be $Null
         Get-Command NonExistingCommand -ea 0 | Should -Be $Null
     }
 

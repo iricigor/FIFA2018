@@ -1,7 +1,10 @@
 function Convert-FIFAMatchToString {
     param (
-        [PSObject]$Match, # TODO: Make it accept pipeline
-        [string]$Type 
+
+        [parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
+        [PSObject]$Match, 
+
+        [AsStringType]$Type 
     )
     foreach ($M1 in $Match) {
 

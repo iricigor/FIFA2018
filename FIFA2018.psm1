@@ -3,6 +3,17 @@ Get-Module $ModName | Remove-Module -Force
 
 Write-Host "`n`n$ModName module import starting`n" -ForegroundColor Cyan
 
+#
+# Module constants
+#
+
+#$Script:AsStringTypes = 'Short','Full','Events' # TODO: Add this in some structured way, like on variable with sub-properties
+enum AsStringType {
+    Short
+    Full
+    Events
+}
+
 
 #
 # Import main functions
