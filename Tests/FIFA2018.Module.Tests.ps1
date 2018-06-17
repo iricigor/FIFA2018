@@ -18,7 +18,7 @@ Import-Module (Join-Path $root "$ModuleName.psd1") -Force
 #
 
 if ($Env:APPVEYOR) {
-    Write-Host "Checking environment details`n"
+    "Checking environment details`n" | Out-Host
     $PSVersionTable | Out-Host
     Get-Module | Out-Host
     Get-Module -ListAvailable PowerShellGet,PackageManagement | Out-Host
@@ -80,4 +80,15 @@ Describe 'Proper Documentation' {
         Pop-Location
 		$diff | Should -Be $null
 	}
+}
+
+Describe 'ScriptAnalyzer Tests' {
+    it 'Checks script and finds no errors' {
+        # Install PSScriptAnalyzer
+        if (!(Get-Module PSScriptAnalyzer -List -ea 0)) {Install-Module PSScriptAnalyzer -Force -Scope CurrentUser}
+        Import-Module PSScriptAnalyzer
+        # Check code
+        $SA = Invoke-ScriptAnalyzer -Path $root -Recurse
+        $SA | ? Severity -eq 'Error' | Should -Be $null
+    }
 }

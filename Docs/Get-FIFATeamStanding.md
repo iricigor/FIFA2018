@@ -38,8 +38,8 @@ Gives details about played matches, goals and points for Serbian team.
 ### -AsString
 If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.
 
-- **`-AsString Short`** gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time.
-- **`-AsString Full`** gives full names for countries and result. For live and future matches, it applies the same logic as short.
+- **`-AsString Short`** gives shorter string representing team. It includes country code and part of information.
+- **`-AsString Full`** gives longer string representing team. It includes full country name and detailed standings information.
 
 ```yaml
 Type: AsStringOptions
@@ -55,7 +55,9 @@ Accept wildcard characters: False
 ```
 
 ### -TeamName
-{{Fill TeamName Description}}
+
+String specifying country for which we need information. It can be provided as three lettered abbreviation or as full country name.
+More countries can be specified with comma separated list.
 
 ```yaml
 Type: String[]

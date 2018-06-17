@@ -2,7 +2,7 @@ function Get-FIFALiveMatch {
 
     # returns live match details
     # if no match, it returns warning
-    
+
     param (
         [AsStringOptions]$AsString
     )
@@ -12,6 +12,6 @@ function Get-FIFALiveMatch {
         Write-Warning "No match in progress."
     } else {
         if ($AsString) {Convert-FIFAMatchToString $Match $AsString}
-        else {$Match}    
+        else {$Match}
     }
 }

@@ -1,21 +1,21 @@
 
 function Get-FIFAGroupStanding {
-    
+
     param (
-        
+
         [parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
         [Alias('GroupName')][char[]]$GroupLetter
-        
+
         #[AsStringOptions]$AsString
     )
-    
+
     BEGIN {
-        $Response = Get-FIFAEndpoint 'teams/group_results' 
+        $Response = Get-FIFAEndpoint 'teams/group_results'
     }
 
     PROCESS {
         foreach ($G1 in $GroupLetter) {
-            
+
             # find team
             $Group = $Response | Where-Object {$_.group.letter -eq $G1} | Select -Expand Group
             if (!$Group) {
@@ -24,8 +24,8 @@ function Get-FIFAGroupStanding {
             } elseif ($Group.count -gt 1) {
                 Write-Warning "Multiple teams found: $($Group.group.letter -join ',')"
                 continue
-            }    
-            
+            }
+
             $SortedGroup = for ($i =0; $i -lt 4; $i++) {
                 New-Object PSObject -Property @{
                     Group = $Group.letter
@@ -42,7 +42,7 @@ function Get-FIFAGroupStanding {
                 throw 'Group standing as string not implemented yet'
             } else {
                 $SortedGroup
-            }        
+            }
         }
     }
 

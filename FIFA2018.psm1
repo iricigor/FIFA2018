@@ -1,3 +1,6 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost','')]
+param()
+
 $ModName = 'FIFA2018'
 Get-Module $ModName | Remove-Module -Force
 

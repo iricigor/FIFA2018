@@ -206,7 +206,7 @@ Brazil - Switzerland 1:0 (34')</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
           <maml:name>TeamName</maml:name>
           <maml:Description>
-            <maml:para>{{Fill TeamName Description}}</maml:para>
+            <maml:para>String specifying country for which we need information. It can be provided as three lettered abbreviation or as full country name. More countries can be specified with comma separated list.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
@@ -219,7 +219,7 @@ Brazil - Switzerland 1:0 (34')</dev:code>
           <maml:name>AsString</maml:name>
           <maml:Description>
             <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
-            <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short.</maml:para>
+            <maml:para>- `-AsString Short` gives shorter string representing team. It includes country code and part of information. - `-AsString Full` gives longer string representing team. It includes full country name and detailed standings information.</maml:para>
           </maml:Description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
@@ -240,7 +240,7 @@ Brazil - Switzerland 1:0 (34')</dev:code>
         <maml:name>AsString</maml:name>
         <maml:Description>
           <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
-          <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short.</maml:para>
+          <maml:para>- `-AsString Short` gives shorter string representing team. It includes country code and part of information. - `-AsString Full` gives longer string representing team. It includes full country name and detailed standings information.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
         <dev:type>
@@ -252,7 +252,7 @@ Brazil - Switzerland 1:0 (34')</dev:code>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="0" aliases="none">
         <maml:name>TeamName</maml:name>
         <maml:Description>
-          <maml:para>{{Fill TeamName Description}}</maml:para>
+          <maml:para>String specifying country for which we need information. It can be provided as three lettered abbreviation or as full country name. More countries can be specified with comma separated list.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>

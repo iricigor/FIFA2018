@@ -47,6 +47,8 @@ Get-FIFATeamStanding SRB,CRO Full
 'D','E' | Get-FIFAGroupStanding | Format-Table
 ```
 
+For more information, see detailed examples for each command: [Today](Docs/Get-FIFAToday.md), [Tomorrow](Docs/Get-FIFATomorrow.md), [LiveMatch](Docs/Get-FIFALiveMatch.md), [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md).
+
 ### -AsString parameter explanation
 
 If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.
