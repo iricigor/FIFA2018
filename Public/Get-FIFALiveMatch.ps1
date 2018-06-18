@@ -3,6 +3,7 @@ function Get-FIFALiveMatch {
     # returns live match details
     # if no match, it returns warning
 
+    [CmdletBinding()]
     param (
         [AsStringOptions]$AsString
     )
