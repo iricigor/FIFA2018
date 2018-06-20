@@ -448,11 +448,11 @@ Serbia - Brazil  (Wed 27.Jun 20:00)</dev:code>
       <command:verb>Get</command:verb>
       <command:noun>FIFATeamScorers</command:noun>
       <maml:description>
-        <maml:para>{{Fill in the Synopsis}}</maml:para>
+        <maml:para>Lists all players that scored goal for a given country.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>{{Fill in the Description}}</maml:para>
+      <maml:para>Lists all players that scored goal for a given country.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -472,7 +472,8 @@ Serbia - Brazil  (Wed 27.Jun 20:00)</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>AsString</maml:name>
           <maml:Description>
-            <maml:para>{{Fill AsString Description}}</maml:para>
+            <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+            <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short.</maml:para>
           </maml:Description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
@@ -492,7 +493,8 @@ Serbia - Brazil  (Wed 27.Jun 20:00)</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>AsString</maml:name>
         <maml:Description>
-          <maml:para>{{Fill AsString Description}}</maml:para>
+          <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+          <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
         <dev:type>
@@ -542,9 +544,31 @@ Serbia - Brazil  (Wed 27.Jun 20:00)</dev:code>
     <command:examples>
       <command:example>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <dev:code>PS C:\&gt; Get-FIFATeamScorers Portugal Full
+
+CRISTIANO RONALDO (Portugal) Portugal vs Spain 3:3  (8:00 PM) - 4'
+CRISTIANO RONALDO (Portugal) Portugal vs Spain 3:3  (8:00 PM) - 44'
+CRISTIANO RONALDO (Portugal) Portugal vs Spain 3:3  (8:00 PM) - 88'
+CRISTIANO RONALDO (Portugal) Portugal vs Morocco 1:0 (90'+5') - 4'</dev:code>
         <dev:remarks>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; (Get-FIFAAllTeams).fifa_code | Get-FIFATeamScorers | Group player,country | ? Count -gt 1 | Sort-Object Count -Desc | Select Name, Count
+
+Name                   Count
+----                   -----
+CRISTIANO RONALDO, POR     4
+Denis CHERYSHEV, RUS       3
+Diego COSTA, ESP           2
+Artem DZYUBA, RUS          2
+Romelu LUKAKU, BEL         2
+Harry KANE, ENG            2
+Thiago CIONEK, POL         2</dev:code>
+        <dev:remarks>
+          <maml:para>You can get always accurate list of top scorers!</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
