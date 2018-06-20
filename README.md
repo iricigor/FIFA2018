@@ -50,7 +50,11 @@ Get-FIFATeamStanding SRB,CRO Full
 Get-FIFATeamMatches Germany Full
 ```
 
-For more information, see detailed examples for each command: [Today](Docs/Get-FIFAToday.md), [Tomorrow](Docs/Get-FIFATomorrow.md), [LiveMatch](Docs/Get-FIFALiveMatch.md), [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md), [TeamMatches](Docs/Get-FIFATeamMatches.md)
+For more information, see detailed examples for each command:
+
+- Matches: [Today](Docs/Get-FIFAToday.md), [Tomorrow](Docs/Get-FIFATomorrow.md), [LiveMatch](Docs/Get-FIFALiveMatch.md)
+- Teams: [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md), [TeamMatches](Docs/Get-FIFATeamMatches.md)
+- Lists: [AllTeams](Docs/Get-FIFAAllTeams.md), [AllGroups](Docs/Get-FIFAAllGroups.md)
 
 ### -AsString parameter explanation
 
