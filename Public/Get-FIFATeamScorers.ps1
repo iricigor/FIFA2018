@@ -21,12 +21,12 @@ function Get-FIFATeamScorers {
             foreach ($M1 in $AllMatches) {
                 $GoalEvents = @()
                 if (($M1.home_team.code -eq $T1) -or ($M1.home_team.country -eq $T1)) {
-                    $GoalEvents = $M1.home_team_events | ? type_of_event -eq 'goal'
+                    $GoalEvents = $M1.home_team_events | ? type_of_event -like 'goal*'
                 }
                 if (($M1.away_team.code -eq $T1) -or ($M1.away_team.country -eq $T1)) {
-                    $GoalEvents = $M1.away_team_events | ? type_of_event -eq 'goal'
+                    $GoalEvents = $M1.away_team_events | ? type_of_event -like 'goal*'
                 }
-                if ($GoalEvents) {Write-Verbose "Processing match $(Convert-FIFAMatchToString $M1 Short)"}
+                if ($GoalEvents) {Write-Verbose "Processing match $(Convert-FIFAMatchToString $M1 Short) with $(@($GoalEvents).Count) goals"}
                 foreach ($Goal in $GoalEvents) {
                     $ListOfGoals += New-Object PSObject -Property @{
                         country = $T1

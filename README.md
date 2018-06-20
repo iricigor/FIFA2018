@@ -48,12 +48,15 @@ Get-FIFATeamStanding SRB,CRO Full
 
 # List all matches for current world champions on this championship
 Get-FIFATeamMatches Germany Full
+
+# You can get always accurate list of top scorers
+(Get-FIFAAllTeams).fifa_code | Get-FIFATeamScorers | Group player,country | ? Count -gt 1 | Sort-Object Count -Desc | Select Name, Count
 ```
 
 For more information, see detailed examples for each command:
 
 - Matches: [Today](Docs/Get-FIFAToday.md), [Tomorrow](Docs/Get-FIFATomorrow.md), [LiveMatch](Docs/Get-FIFALiveMatch.md)
-- Teams: [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md), [TeamMatches](Docs/Get-FIFATeamMatches.md)
+- Teams - Standings, Goals: [TeamStanding](Docs/Get-FIFATeamStanding.md), [GroupStanding](Docs/Get-FIFAGroupStanding.md), [TeamMatches](Docs/Get-FIFATeamMatches.md), [TeamScorers](Docs/Get-FIFATeamScorers.md)
 - Lists: [AllTeams](Docs/Get-FIFAAllTeams.md), [AllGroups](Docs/Get-FIFAAllGroups.md)
 
 ### -AsString parameter explanation
