@@ -12,10 +12,10 @@
 RootModule = '.\FIFA2018.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.2.16'
+ModuleVersion = '0.2.43'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = @('Desktop', 'Core')
 
 # ID used to uniquely identify this module
 GUID = 'b1c1b402-145a-4121-aee5-51ecd5a25e45'
@@ -104,7 +104,7 @@ PrivateData = @{
         ProjectUri = 'https://github.com/iricigor/FIFA2018'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Football-Cup.svg/160px-Football-Cup.svg.png'
 
         # ReleaseNotes of this module
         ReleaseNotes = 'https://github.com/iricigor/FIFA2018/ReleaseNotes.md'
