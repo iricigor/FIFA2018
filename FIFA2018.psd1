@@ -33,7 +33,7 @@ Copyright = '(c) 2018 iricigor@gmail.com. All rights reserved.'
 Description = 'Module gives result (including live), fixtures, team standings and others for FIFA 2018 - Football World Cup in Russia'
 
 # Minimum version of the Windows PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '5.1'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
