@@ -26,9 +26,9 @@ function Convert-FIFAMatchToString {
 
             'Full' {
                 switch ($M1.status) {
-                    'completed' {$M1.home_team.country + ' - ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + '  (' + (Get-Date ($M1.datetime) -Format $FullDateFormat) + ')'}
-                    'in progress' {$M1.home_team.country + ' - ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + ' (' + $M1.time + ')'}
-                    'future' {$M1.home_team.country + ' - ' + $M1.away_team.country + '  (' + (Get-Date ($M1.datetime) -Format $FullDateFormat) + ')'}
+                    'completed' {$M1.home_team.country + ' vs ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + '  (' + (Get-Date ($M1.datetime) -Format $FullDateFormat) + ')'}
+                    'in progress' {$M1.home_team.country + ' vs ' + $M1.away_team.country + ' ' + $M1.home_team.goals + ':' + $M1.away_team.goals + ' (' + $M1.time + ')'}
+                    'future' {$M1.home_team.country + ' vs ' + $M1.away_team.country + '  (' + (Get-Date ($M1.datetime) -Format $FullDateFormat) + ')'}
                     default {Write-Error ('Unknown match status ' + $M1.home_team.country + '-' + $M1.away_team.country + ', status: ' + $M1.status)}
                 }
             }
