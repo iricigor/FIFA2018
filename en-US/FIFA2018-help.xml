@@ -2,6 +2,146 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Get-FIFAAllGroups</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFAAllGroups</command:noun>
+      <maml:description>
+        <maml:para>Lists all groups from championship.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Lists all groups from FIFA 2018 championship. Useful if you would need to generate some bigger reports.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFAAllGroups</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFAAllGroups</dev:code>
+        <dev:remarks>
+          <maml:para>Lists letters A to H, as names of current championship group names.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-FIFAAllTeams</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>FIFAAllTeams</command:noun>
+      <maml:description>
+        <maml:para>Lists all teams in FIFA 2018 championship.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Lists all teams in FIFA 2018 championship. Useful if you would need to generate some bigger reports. Teams can be listed in JSON, or as string in short format (i.e. BRA) or full format (i.e. Brazil)</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-FIFAAllTeams</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>AsString</maml:name>
+          <maml:Description>
+            <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+            <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+          </maml:Description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Short</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Full</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Events</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+          <dev:type>
+            <maml:name>AsStringOptions</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>AsString</maml:name>
+        <maml:Description>
+          <maml:para>If parameter `-AsString` is not specified, functions return JSON object as provided by parent API.</maml:para>
+          <maml:para>- `-AsString Short` gives short names for countries and result. For live matches, it will display current match time. If match is not yet started, it will display match start time. - `-AsString Full` gives full names for countries and result. For live and future matches, it applies the same logic as short. - `-AsString Events` gives full names for countries and result, followed by chronological list of events from the match.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">AsStringOptions</command:parameterValue>
+        <dev:type>
+          <maml:name>AsStringOptions</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-FIFAAllTeams Full</dev:code>
+        <dev:remarks>
+          <maml:para>Lists all 32 teams from FIFA 2018 championship.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Get-FIFAGroupStanding</command:name>
       <command:verb>Get</command:verb>
       <command:noun>FIFAGroupStanding</command:noun>
