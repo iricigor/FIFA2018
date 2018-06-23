@@ -12,7 +12,7 @@
 RootModule = '.\FIFA2018.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.2.45'
+ModuleVersion = '0.3.46'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Desktop', 'Core')
