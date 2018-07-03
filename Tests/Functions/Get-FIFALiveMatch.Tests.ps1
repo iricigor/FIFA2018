@@ -41,7 +41,22 @@ Describe "Function-$CommandName-Definition" {
 
 Describe "Function-$CommandName-Functionality" {
 
-    It 'Running command should not throw an error' {
-        {Get-FIFALiveMatch -wa SilentlyContinue} | Should -Not -Throw
+    # It 'Running command should not throw an error' {
+    #     {Get-FIFALiveMatch -wa SilentlyContinue} | Should -Not -Throw
+    # }
+
+    Push-Location $PSScriptRoot
+    # Mock real API calls
+    Mock Get-FIFAEndpoint -ModuleName FIFA2018 -ParameterFilter {$EndPoint -eq 'matches/today'} -MockWith {Get-Content '.\Mock-GetToday.json' -Raw | ConvertFrom-Json}
+
+    It 'Should return one result' {
+        @((Get-FIFALiveMatch).time).Count | Should -Be 1
     }
+
+    It 'Should parse minutes properly from mocked command' {
+        (Get-FIFALiveMatch).time | should -Be "50'"
+    }
+
+    Pop-Location
+    
 }
